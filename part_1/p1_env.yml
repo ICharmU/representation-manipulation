@@ -1,0 +1,15 @@
+name: rm_p1
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.12
+  - ipython=9.5.0
+  - nbformat=5.10.4
+  - jupyterlab=4.4.7
+  - numpy=2.4.2
+  - pandas=3.0.1
+  - python-dotenv=1.2.1
+  - pip=26.0.1
+  - pip:
+    - google-genai==1.65.0
