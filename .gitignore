@@ -1,4 +1,5 @@
 .vscode
 *.env
 part_1/*.ipynb
-part_1/generated_data/synthetic/*
+part_1/generated_data/synthetic/*.csv
+part_1/generated_data/synthetic/*.pkl
