@@ -13,3 +13,4 @@ dependencies:
   - pip=26.0.1
   - pip:
     - google-genai==1.65.0
+    - dowhy==0.14
