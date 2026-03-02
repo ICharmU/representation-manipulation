@@ -38,6 +38,18 @@ def generate_synthetic_scms():
     
     print("Finished generating synthetic structural causal models")
 
+def generate_lat_templates():
+    script_fp = "generate_lat_templates.py"
+
+    try:
+        print("Generating LAT templates...")
+        subprocess.run(["python", script_fp])
+    except Exception as e:
+        print("Failed to generate LAT templates")
+        raise e
+    
+    print("Finished generating LAT templates")
+
 # expects rm_p1 environment to be active and script to be run from /part_1 directory:
 # conda activate rm_p1
 # python runner.py
@@ -52,3 +64,7 @@ if __name__ == "__main__":
     if GENERATE_SCMS:
         # setup for do_probability_estimates.py
         generate_synthetic_scms()
+
+    GENERATE_LAT = True
+    if GENERATE_LAT:
+        generate_lat_templates()
