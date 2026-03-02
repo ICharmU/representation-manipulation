@@ -7,10 +7,13 @@ dependencies:
   - ipython=9.5.0
   - nbformat=5.10.4
   - jupyterlab=4.4.7
-  - numpy=2.4.2
+  - numpy=2.3.5
   - pandas=3.0.1
   - python-dotenv=1.2.1
   - pip=26.0.1
+  - sentence-transformers=5.2.3
   - pip:
     - google-genai==1.65.0
     - dowhy==0.14
+    - torch==2.10.0
+    - cuda-toolkit==13.1.1
