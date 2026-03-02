@@ -42,7 +42,13 @@ def generate_synthetic_scms():
 # conda activate rm_p1
 # python runner.py
 if __name__ == "__main__":
+    GENERATE_PAIRS = False
 
-    generate_causation_correlation_pairs()
-    generate_mechanism_temporal_pairs()
-    generate_synthetic_scms()
+    if GENERATE_PAIRS:
+        generate_causation_correlation_pairs()
+        generate_mechanism_temporal_pairs()
+
+    GENERATE_SCMS = True
+    if GENERATE_SCMS:
+        # setup for do_probability_estimates.py
+        generate_synthetic_scms()
