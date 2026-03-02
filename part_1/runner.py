@@ -50,21 +50,46 @@ def generate_lat_templates():
     
     print("Finished generating LAT templates")
 
+def validate_word_invariance():
+    script_fp = "validate_word_invariance.py"
+
+    try:
+        print("Validating word invariance for generated pairs...")
+        subprocess.run(["python", script_fp])
+    except Exception as e:
+        print("Failed to validate word invariance")
+        raise e
+    
+    print("Finished word invariance validation")
+
+
 # expects rm_p1 environment to be active and script to be run from /part_1 directory:
 # conda activate rm_p1
 # python runner.py
 if __name__ == "__main__":
-    GENERATE_PAIRS = False
+    GENERATE = True
+    if GENERATE:
+        GENERATE_PAIRS = False
+        if GENERATE_PAIRS:
+            generate_causation_correlation_pairs()
+            generate_mechanism_temporal_pairs()
 
-    if GENERATE_PAIRS:
-        generate_causation_correlation_pairs()
-        generate_mechanism_temporal_pairs()
+        GENERATE_SCMS = True
+        if GENERATE_SCMS:
+            # setup for do_probability_estimates.py
+            generate_synthetic_scms()
 
-    GENERATE_SCMS = True
-    if GENERATE_SCMS:
-        # setup for do_probability_estimates.py
-        generate_synthetic_scms()
+        GENERATE_LAT = True
+        if GENERATE_LAT:
+            generate_lat_templates()
 
-    GENERATE_LAT = True
-    if GENERATE_LAT:
-        generate_lat_templates()
+    VALIDATE = True
+    if VALIDATE:
+        VALIDATE_INVARIANCE = True
+        if VALIDATE_INVARIANCE:
+            validate_word_invariance()
+
+
+
+
+        
