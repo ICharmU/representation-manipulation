@@ -4,3 +4,4 @@ part_1/*.ipynb
 part_1/generated_data/synthetic/*.csv
 part_1/generated_data/synthetic/*.pkl
 */__pycache__/*
+part_1/generated_data/lat_questions/*.csv
