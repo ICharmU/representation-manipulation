@@ -73,35 +73,36 @@ def assign_edge_weights(scm):
 
     return scm
 
-num_nodes = list(range(4,25)) + list(range(4,25))
-# num_nodes = [10, 10]
+if __name__ == "__main__":
+    num_nodes = list(range(4,25)) + list(range(4,25))
+    # num_nodes = [10, 10]
 
-for i, n in enumerate(num_nodes):
-    scm, graph = generate_random_scm(num_nodes=n, edge_probability=0.5)
-    
-    synthetic_data = gcm.draw_samples(scm, num_samples=100000)
-    save_dir = Path("generated_data/synthetic")
-    save_gen = f"synthetic_{i // (len(num_nodes) // 2 if len(num_nodes) > 1 else 1)}_nodes_{n}"
+    for i, n in enumerate(num_nodes):
+        scm, graph = generate_random_scm(num_nodes=n, edge_probability=0.5)
+        
+        synthetic_data = gcm.draw_samples(scm, num_samples=100000)
+        save_dir = Path("generated_data/synthetic")
+        save_gen = f"synthetic_{i // (len(num_nodes) // 2 if len(num_nodes) > 1 else 1)}_nodes_{n}"
 
-    csv_fp = save_dir / (save_gen + ".csv")    
-    synthetic_data.to_csv(csv_fp, index=False)
+        csv_fp = save_dir / (save_gen + ".csv")    
+        synthetic_data.to_csv(csv_fp, index=False)
 
-    scm = assign_edge_weights(scm)
-    pkl_fp = save_dir / (save_gen + ".pkl")
-    with open(pkl_fp, "wb") as f:
-        pickle.dump(scm, f)
-    
-    if i % 10 == 0:
-        print(f"\n--- Random Causal Structure {i+1} ---")
-        # print(f"Edges present: {list(graph.edges)}")
-        # print(synthetic_data.head(3))
+        scm = assign_edge_weights(scm)
+        pkl_fp = save_dir / (save_gen + ".pkl")
+        with open(pkl_fp, "wb") as f:
+            pickle.dump(scm, f)
+        
+        if i % 10 == 0:
+            print(f"\n--- Random Causal Structure {i+1} ---")
+            # print(f"Edges present: {list(graph.edges)}")
+            # print(synthetic_data.head(3))
 
 
-# # to access edge weights:
-# with open("generated_data/synthetic/synthetic_0_nodes_13.pkl", "rb") as f:
-#     x = pickle.load(f)
-#
-# x.graph.edges["X2", "X3"]["weight"]
-# Note edges are always Xk, Xm s.t. K < M
+    # # to access edge weights:
+    # with open("generated_data/synthetic/synthetic_0_nodes_13.pkl", "rb") as f:
+    #     x = pickle.load(f)
+    #
+    # x.graph.edges["X2", "X3"]["weight"]
+    # Note edges are always Xk, Xm s.t. K < M
 
 
