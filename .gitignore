@@ -8,3 +8,7 @@ part_1/generated_data/synthetic/*.csv
 part_1/generated_data/synthetic/*.pkl
 part_1/generated_data/lat_questions/*.csv
 part_1/validated_data/*.csv
+
+outputs/causal_acts_*.npy
+outputs/corr_acts_*.npy
+outputs/tokenwise/
