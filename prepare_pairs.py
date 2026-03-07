@@ -8,7 +8,6 @@ OUTPUT_FILE = f"{OUTPUT_DIR}/causation_correlation_prompts.csv"
 Path(OUTPUT_DIR).mkdir(exist_ok=True)
 
 df = pd.read_csv(INPUT_FILE)
-print("Total rows:", len(df))
 
 def build_prompt(text):
     return f"""Consider the causality in the following scenario:
