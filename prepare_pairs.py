@@ -1,7 +1,7 @@
 import pandas as pd
 from pathlib import Path
 
-INPUT_FILE = "generated_data/causation_correlation_pairs.csv"
+INPUT_FILE = "part_1/generated_data/causation_correlation_pairs.csv"
 OUTPUT_DIR = "prepared_data"
 OUTPUT_FILE = f"{OUTPUT_DIR}/causation_correlation_prompts.csv"
 
